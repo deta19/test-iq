@@ -26,6 +26,8 @@ Your job is to:
 - Fix the registration process so it works correctly again
 - Explain why this bug happened
 
+-fixed, the error was the missing field in the model User.
+
 ### Task #3
 
 Refactor the user registration logic so that it is handled by a dedicated service class instead of being written directly in the controller.
