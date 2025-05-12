@@ -48,6 +48,8 @@ Translate the email verification notification into Romanian and add a custom lin
 of text in the email body (e.g. a friendly reminder or app-specific instruction).
 Add an extra line like: „Dacă ai probleme cu linkul de mai jos, contactează echipa de suport.”
 
+--done
+
 ### Task #6
 
 After a user registers, send them a custom welcome email. The email should:
@@ -56,13 +58,20 @@ After a user registers, send them a custom welcome email. The email should:
 - Have a friendly message (in Romanian)
 - Be sent only once upon registration
 
+
+fix
+--done cerating the necessary stuff to send emails via jobs
+
 ### Task #7
 
 Restrict access to the users list page:
 
 - Only users with role admin or editor can view the page.
+done
 - Only users with role admin can delete users.
+done
 - All other roles (e.g. viewer, user, guests) should be blocked from accessing or modifying anything on this page.
+done
 
 ### Task #8
 

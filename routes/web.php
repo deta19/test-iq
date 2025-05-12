@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,10 +21,18 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     return view('dashboard');
+
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/dashboard/users', function () {
+    if (  Auth::user()->role !== 'admin' && Auth::user()->role !== 'editor' ) {
+        return redirect('/dashboard');
+
+    }
+    
     return view('users');
+
+
 })->middleware(['auth', 'verified'])->name('users');
 
 Route::middleware('auth')->group(function () {

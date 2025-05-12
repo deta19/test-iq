@@ -32,9 +32,11 @@
                         <button wire:click="edit({{ $user->id }})"
                                 class="text-blue-600 hover:underline mr-2">Edit
                         </button>
+                         @if(auth()->user()->role === 'admin')
                         <button wire:click="delete({{ $user->id }})"
                                 class="text-red-600 hover:underline">Delete
                         </button>
+                        @endif
                     </td>
                 </tr>
             @empty
