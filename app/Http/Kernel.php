@@ -67,6 +67,9 @@ class Kernel extends HttpKernel
             ThrottleRequests::class.':api',
             SubstituteBindings::class,
         ],
+        'log.headers' => [
+                \App\Http\Middleware\LogRequestHeaders::class
+        ],
     ];
 
     /**

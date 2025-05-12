@@ -78,6 +78,8 @@ done
 Create a middleware that logs all incoming request headers to a custom log file.
 📁 The log file should be saved to: storage/logs/request-headers.log
 
+done
+
 ### Task #9
 
 Create a protected API route that returns the authenticated user's details in JSON format.
