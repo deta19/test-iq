@@ -1,8 +1,10 @@
 <x-guest-layout>
     <div class="mb-4 text-sm text-gray-600">
-        {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
+        {{ __('Vă mulțumim pentru înscriere! Înainte de a începe, ați putea să vă verificați adresa de e-mail făcând clic pe linkul pe care tocmai vi l-am trimis prin e-mail? Dacă nu ați primit e-mailul, vă vom trimite cu plăcere un altul.') }}
     </div>
-
+<div class="mb-4 text-sm text-gray-600">
+    Dacă ai probleme cu linkul de mai jos, contactează echipa de suport.
+</div>
     @if (session('status') == 'verification-link-sent')
         <div class="mb-4 font-medium text-sm text-green-600">
             {{ __('A new verification link has been sent to the email address you provided during registration.') }}
