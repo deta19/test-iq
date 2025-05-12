@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use App\Jobs\SendWelcomeEmail;
 
 class RegisteredUserController extends Controller
 {
@@ -43,7 +44,8 @@ class RegisteredUserController extends Controller
         ]);
 
         event(new Registered($user));
-
+// After creating user:
+SendWelcomeEmail::dispatch($user);
         Auth::login($user);
 
         return redirect(RouteServiceProvider::HOME);
