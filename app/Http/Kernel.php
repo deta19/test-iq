@@ -63,13 +63,14 @@ class Kernel extends HttpKernel
         ],
 
         'api' => [
-            // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
+            \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
             ThrottleRequests::class.':api',
             SubstituteBindings::class,
+            'throttle:api',
         ],
         'log.headers' => [
                 \App\Http\Middleware\LogRequestHeaders::class
-        ],
+            ],
     ];
 
     /**

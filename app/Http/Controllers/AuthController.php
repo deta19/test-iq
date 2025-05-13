@@ -36,8 +36,7 @@ class AuthController extends Controller
             return response()->json(['error' => 'Invalid credentials'], 401);
         }
 
-        SendDigestEmail::dispatch(auth()->user());
-
+       
         return response()->json([
             'token' => $user->createToken('main')->plainTextToken,
         ]);

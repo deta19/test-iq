@@ -88,6 +88,17 @@ Create a protected API route that returns the authenticated user's details in JS
 - It should return the user’s name, email, and role
 - The route must be protected (authenticated users only)
 
+- created new api route
+- everyting worked perfectly
+gettoken
+curl -X POST http://localhost/api/api/login \
+  -H "Content-Type: application/json" \
+  -d '{"email":"deta.mihai+the@gmail.com", "password":"password"}'
+
+ use token
+ curl -H "Authorization: Bearer TOKEN" http://localhost/api/me
+
+
 ### Task #10
 
 Write an import process that reads orase.csv from storage and insert the values to database
