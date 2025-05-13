@@ -1,9 +1,12 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\HomepageController;
 use Illuminate\Support\Facades\Route;
 
 use Illuminate\Support\Facades\Auth;
+use App\Services\WeatherService;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,9 +18,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomepageController::class, 'index'])->name("homepage");
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -40,4 +41,26 @@ Route::middleware('auth', 'log.headers')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+
+Route::get('/weather/{lat}/{lon}', function ($lat, $lon, WeatherService $weatherService) {
+
+
+    $weather = $weatherService->getWeather($lat, $lon);
+
+    if (!$weather) {
+        return response()->json(['error' => 'Unable to fetch weather data'], 400);
+    }
+
+    if ($weather['WeatherIcon'] < 10) {
+        $weather['WeatherIcon'] = '0'.$weather['WeatherIcon'];
+    }
+
+    return response()->json([
+        'temperature' => $weather['Temperature']['Metric']['Value'],
+        'weather_text' => $weather['WeatherText'],
+        'icon' =>  'https://developer.accuweather.com/sites/default/files/'.$weather['WeatherIcon'].'-s.png'
+    ]);
+});
+
 require __DIR__.'/auth.php';
