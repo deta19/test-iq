@@ -11,15 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('orases', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
+            $table->string('nume');
+            $table->foreignId('judet_id')->constrained('judets')->onDelete('cascade');
+            $table->decimal('coord_x', 8, 5);
+            $table->decimal('coord_y', 8, 5);
+            $table->string('populatie');
+            $table->string('regiune');
             $table->timestamps();
         });
+
     }
 
     /**
@@ -27,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('orase');
     }
 };

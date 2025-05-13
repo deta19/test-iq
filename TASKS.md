@@ -106,6 +106,16 @@ Write an import process that reads orase.csv from storage and insert the values 
 - Make a command to import the file
 - Ensure cities are correctly linked to their respective county using a foreign key.
 
+done: 
+structure: orase <--> judete
+cmd:
+- php artisan migrate --path=database/migrations/2025_05_13_153826_create_judete_table.php
+- php artisan migrate
+
+NEW command is:
+php artisan app:importorasecsv
+
+
 ### Task #11
 
 Use the AccuWeather API to fetch and display the current weather based on the user’s browser location (latitude and longitude).
