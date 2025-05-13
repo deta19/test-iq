@@ -6,9 +6,17 @@ use App\Jobs\SendDigestEmail;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\Services\UserRegistrationService
 
 class AuthController extends Controller
 {
+    protected UserRegistrationService $registrationService;
+
+    public function __construct(UserRegistrationService $registrationService)
+    {
+        $this->registrationService = $registrationService;
+    }
+
     public function register(Request $request)
     {
         $request->validate([
@@ -17,11 +25,14 @@ class AuthController extends Controller
             'password' => 'required|min:6',
         ]);
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => bcrypt($request->password),
-        ]);
+        // $user = User::create([
+        //     'name' => $request->name,
+        //     'email' => $request->email,
+        //     'password' => bcrypt($request->password),
+        // ]);
+        $user = $this->registrationService->register($request->only([
+            'name', 'email', 'password'
+        ]));
 
         return response()->json([
             'token' => $user->createToken('main')->plainTextToken,

@@ -39,7 +39,7 @@ Refactor the user registration logic so that it is handled by a dedicated servic
 - Move the logic for creating the user, hashing the password, and sending the welcome email into this class
 - Use the service in the controller instead of writing logic inline
 
--TODO
+## DONE
 
 ### Task #4
 
