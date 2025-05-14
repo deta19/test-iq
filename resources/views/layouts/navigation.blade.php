@@ -19,6 +19,9 @@
                     <x-nav-link :href="route('users')" :active="request()->routeIs('users')">
                         {{ __('Users') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('customusers')" :active="request()->routeIs('customusers')">
+                        {{ __('Users with TailWindCSS') }}
+                    </x-nav-link>
                      @endif
                 </div>
             </div>
