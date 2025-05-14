@@ -13,7 +13,6 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
-         @livewireStyles
 
          <script src="//unpkg.com/alpinejs" defer></script>
     </head>
@@ -31,8 +30,7 @@
             @endif
             <!-- Page Content -->
             <main>
- 
-                  {{ $slot }}
+  @yield('content')
             </main>
         </div>
  

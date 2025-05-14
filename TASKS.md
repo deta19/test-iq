@@ -149,3 +149,5 @@ Replicate the existing user list table using DataTables instead of Livewire. The
 - Load data using AJAX
 - Display the same columns: ID, Name, Email, Registered Date
 - Include the same actions: Edit, Delete
+
+## DONE

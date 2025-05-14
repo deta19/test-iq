@@ -12,7 +12,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/api/logout', [AuthController::class, 'logout']);
 
     Route::get('/me', function (Request $request) {
-        // return "adas";
         return response()->json([
             'name' => $request->user()->name,
             'email' => $request->user()->email,
