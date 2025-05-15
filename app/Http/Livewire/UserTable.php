@@ -31,7 +31,8 @@ class UserTable extends Component
     public function edit($userId)
     {
         // Example: emit event to open a modal
-        $this->emit('editUser', $userId);
+        // $this->dispatch('editUser', $userId);
+        $this->dispatch('editUser', $userId);
     }
 
     public function delete($userId)

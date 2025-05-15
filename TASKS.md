@@ -18,7 +18,11 @@ The user list page is no longer working properly — interactive features like s
 Investigate and fix the issue.
 💬 Hint: It was working before using Livewire.
 
--TODO
+## DONE
+-- used php artisan livewire:upgrade  
+- fixed search
+- made changes in the app/livewire/userTable.php to make the edit popup functions work, also added the missing modal from the resources/views/livewire/user-table.blade.php
+
 
 ### Task #2
 
